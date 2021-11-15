@@ -1,13 +1,13 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
-  "main": "dist/lib/static/app.min.js",
+  "main": "dist/lib/static/main.min.js",
   "dependencies": {
     "core-js": "^3.6.5",
     "event-source-polyfill": "^1.0.25",
