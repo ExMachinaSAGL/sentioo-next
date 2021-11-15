@@ -1,4 +1,4 @@
-# sentioo-next-lib-ts
+# sentioo-vue-3
 
 ## Project setup
 ```
