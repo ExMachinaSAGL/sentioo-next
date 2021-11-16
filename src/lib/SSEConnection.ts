@@ -27,7 +27,7 @@ export const SSEReadyStates = {
 export class SSEConnection {
   source: any;
   listeners: {
-    [key: string ]: (/*evt: SSEEvent*/) => void
+    [key: string ]: (evt: SSEEvent) => void
   };
 
   constructor (url: string) {
@@ -45,7 +45,7 @@ export class SSEConnection {
    * @param type Event type that should trigger the event
    * @param callback Handles the event
    */
-  on (type: string, callback: (/*evt: SSEEvent*/) => void): void {
+  on (type: string, callback: (evt: SSEEvent) => void): void {
     if (type in this.listeners) { // remove it, if it already exists
       this.removeEvent(type);
     }
@@ -66,7 +66,7 @@ export class SSEConnection {
   }
 
   removeEvent (type: string): void {
-    const callback: (/*evt: SSEEvent*/) => void = this.listeners[type];
+    const callback: (evt: SSEEvent) => void = this.listeners[type];
     if (callback) {
       this.source.removeEventListener(type, callback)
       delete this.listeners[type];

@@ -5479,6 +5479,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+linkify-html@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/linkify-html/-/linkify-html-3.0.3.tgz#4ca1d71dbd53f78625d6db8afe3db34f06f936a0"
+  integrity sha512-yqfeq9WNGXlk36ka8j862D70L2Ddh+wJkExaHsUJTNTL7D5tDFZbLpFrcHGa6Zy3t8Kk/1Edw7WUPyPV09zbXQ==
+
 linkifyjs@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-3.0.3.tgz#51ea2160b4c60c2c87c27757a1e9eacd422c6076"

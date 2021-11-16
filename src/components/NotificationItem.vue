@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import 'whatwg-fetch';
-import linkifyHtml from 'linkifyjs/html';
+import linkifyHtml from 'linkify-html';
 import { defineComponent } from 'vue';
 import store from '@/store/index';
 import Notification from '../lib/Notification';
