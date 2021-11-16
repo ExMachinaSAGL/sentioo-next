@@ -1,6 +1,6 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

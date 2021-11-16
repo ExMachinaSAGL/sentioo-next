@@ -148,7 +148,7 @@ export default defineComponent({
 
     return toRefs(state);
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
