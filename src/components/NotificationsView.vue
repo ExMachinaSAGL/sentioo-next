@@ -3,10 +3,10 @@
     <div class="notifications-view-header">
       <div class="notifications-view-header-bulk-icons" v-if="notifications && notifications.length">
         <a href="#" title="Mark all as read" class="notifications-read-all" @click="readAll">
-          <i class="fa fa-check-circle"></i>
+          <font-awesome-icon icon="check-circle" />
         </a>
         <a href="#" title="Remove all notifications" class="notifications-remove-all" @click="removeAll">
-          <i class="fa fa-trash"></i>
+          <font-awesome-icon icon="trash" />
         </a>
       </div>
       <div class="unread-text" v-show="showUnreadText">{{ unreadText }}</div>

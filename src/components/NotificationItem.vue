@@ -5,8 +5,8 @@
         :class="[notification.unread ? '' : 'notification-read']"
         :style="{ backgroundColor: backgroundColor }">
     <div class="notification-actions">
-      <i class="fa fa-trash" title="Delete notification" @click="removeNotification"></i>
-      <i class="fa fa-check-circle" title="Mark as read" @click="readNotification"></i>
+      <i title="Delete notification" @click="removeNotification"><font-awesome-icon icon="trash" /></i>
+      <i title="Mark as read" @click="readNotification"><font-awesome-icon icon="check-circle" /></i>
     </div>
     <div class="notification-header">
       <div class="icon-container">

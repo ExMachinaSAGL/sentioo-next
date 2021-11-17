@@ -2,7 +2,7 @@
   <div class="notification-top-bar">
     <div class="icon-container">
       <div class="notification-icon" :style="{ backgroundColor: iconColor }">
-        <i class="fa fa-bell"></i>
+        <i><font-awesome-icon icon="bell" /></i>
       </div>
       <div class="unread-badge" v-if="unreadCount > 0">{{ unreadBadge }}</div>
     </div>
@@ -81,5 +81,4 @@ export default defineComponent({
 .unread-badge {
   @include unread-badge;
 }
-
 </style>
