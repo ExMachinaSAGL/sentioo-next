@@ -31,11 +31,18 @@ import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
 import NotificationItem from './NotificationItem.vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTrash);
+library.add(faCheckCircle);
 
 export default defineComponent({
   name: 'notifications-view',
   components: {
-    NotificationItem
+    NotificationItem,
+    'font-awesome-icon': FontAwesomeIcon
   },
   props: {
     baseServerUrl: String

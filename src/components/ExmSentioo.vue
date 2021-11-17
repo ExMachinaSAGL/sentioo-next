@@ -16,7 +16,8 @@
 
 <script lang="ts">
 import { reactive, toRefs, computed, defineComponent, PropType, onMounted } from 'vue';
-import { useStore } from 'vuex';
+// import { useStore } from 'vuex';
+import store from '../store';
 import { mixin as clickaway } from "vue3-click-away";
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
@@ -48,7 +49,7 @@ export default defineComponent({
     clickaway
   ],
   setup(props) {
-    const store = useStore();
+    // const store = useStore();
 
     let notifications = computed((): Notification[] => {
       return store.getters['sentioo/getNotifications'];

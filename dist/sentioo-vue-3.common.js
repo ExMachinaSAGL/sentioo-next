@@ -22208,7 +22208,7 @@ var install = function install(Vue) {
 var ExmSentiooNext = {
   install: install
 };
-(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createApp)(ExmSentioo).use(src_store).component('font-awesome-icon', FontAwesomeIcon);
+(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createApp)(ExmSentioo).use(src_store).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
 var sentiooStore = sentiooModule;
 /* harmony default export */ const src_0 = (ExmSentiooNext);
 

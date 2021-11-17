@@ -1,12 +1,12 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-lib": "vue-cli-service build --target lib src/index.ts"
+    "build-lib": "vue-cli-service build --target lib --name sentioo src/index.ts"
   },
   "main": "./dist/lib/sentioo-vue-3.umd.js",
   "dependencies": {

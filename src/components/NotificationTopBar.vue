@@ -14,11 +14,19 @@ import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faBell);
 
 export default defineComponent({
   name: 'notification-top-bar',
   props: {
     showNotifications: Boolean
+  },
+  components: {
+    'font-awesome-icon': FontAwesomeIcon
   },
   setup() {
     const store = useStore();

@@ -39,6 +39,12 @@ import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
 import datetimeFilter from './../lib/datetimeFilter';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTrash);
+library.add(faCheckCircle);
 
 export default defineComponent({
   name: 'notification-item',
@@ -50,6 +56,9 @@ export default defineComponent({
       }
     },
     baseServerUrl: String
+  },
+  components: {
+    'font-awesome-icon': FontAwesomeIcon
   },
   setup(props) {
     const store = useStore();

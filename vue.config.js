@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+var config = process.env.NODE_ENV === 'production' ? {
   outputDir: __dirname + "/dist/lib",
   assetsDir: "static",
   configureWebpack: {
@@ -33,4 +33,6 @@ module.exports = {
       ],
     },
   },
-};
+} : {};
+
+module.exports = config;
