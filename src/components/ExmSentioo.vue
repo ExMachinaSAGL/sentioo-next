@@ -51,7 +51,8 @@ export default defineComponent({
     const store = useStore();
 
     let notifications = computed((): Notification[] => {
-      return store.getters['sentioo/getNotifications'];
+      // return store.getters['sentioo/getNotifications'];
+      return store.state.sentioo.notifications
     });
 
     const closeDropdown = (): void => {

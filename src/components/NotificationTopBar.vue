@@ -39,7 +39,8 @@ export default defineComponent({
     };
 
     let notifications = computed((): Notification[] => {
-      return store.getters['sentioo/getNotifications'];
+      // return store.getters['sentioo/getNotifications'];
+      return store.state.sentioo.notifications;
     });
 
     let unreadBadge = computed((): number|string => {
