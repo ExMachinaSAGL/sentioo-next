@@ -35,7 +35,8 @@
 import 'whatwg-fetch';
 import linkifyHtml from 'linkify-html';
 import { reactive, toRefs, computed, defineComponent, PropType } from 'vue';
-import { useStore } from 'vuex';
+// import { useStore } from 'vuex';
+import store from '../store';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
 import datetimeFilter from './../lib/datetimeFilter';
@@ -61,7 +62,7 @@ export default defineComponent({
     'font-awesome-icon': FontAwesomeIcon
   },
   setup(props) {
-    const store = useStore();
+    // const store = useStore();
 
     let notificationValidity = computed((): string => {
       return datetimeFilter(props?.notification?.validFrom);

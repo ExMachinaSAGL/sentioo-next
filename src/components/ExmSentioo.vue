@@ -16,7 +16,8 @@
 
 <script lang="ts">
 import { reactive, toRefs, computed, defineComponent, PropType, onMounted } from 'vue';
-import { useStore } from 'vuex';
+// import { useStore } from 'vuex';
+import store from '../store';
 import { mixin as clickaway } from "vue3-click-away";
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
@@ -30,8 +31,7 @@ interface PropsState {
   showNotifications: boolean,
   baseServerUrl: string | null | undefined,
   sseServerUrl: string,
-  reconnectTimeout: number,
-  notifications: Notification[]
+  reconnectTimeout: number
 }
 
 export default defineComponent({
@@ -48,12 +48,7 @@ export default defineComponent({
     clickaway
   ],
   setup(props) {
-    const store = useStore();
-
-    let notifications = computed((): Notification[] => {
-      // return store.getters['sentioo/getNotifications'];
-      return store.state.sentioo.notifications
-    });
+    // const store = useStore();
 
     const closeDropdown = (): void => {
       state.showNotifications = false;
@@ -124,7 +119,6 @@ export default defineComponent({
       baseServerUrl: props.serverUrl,
       sseServerUrl: `${props.serverUrl}/${'subscribe'}`,
       reconnectTimeout: 5000,
-      notifications,
       closeDropdown,
       toggleNotifications
     });

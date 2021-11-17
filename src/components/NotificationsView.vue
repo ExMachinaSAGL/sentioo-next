@@ -27,7 +27,8 @@
 <script lang="ts">
 import 'whatwg-fetch';
 import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
-import { useStore } from 'vuex';
+// import { useStore } from 'vuex';
+import store from '../store';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
 import NotificationItem from './NotificationItem.vue';
@@ -48,7 +49,7 @@ export default defineComponent({
     baseServerUrl: String
   },
   setup(props) {
-    const store = useStore();
+    // const store = useStore();
 
     let sortedNotifications = computed((): Notification[] => {
       return state.notifications.slice().sort((a: any, b: any) => {
@@ -127,8 +128,8 @@ export default defineComponent({
 
     onMounted(() => {
       // Workaround for the issue of the notification list not correctly updating
-      store.subscribe((mutation, state) => {
-        state.notifications = state.sentioo.notifications;
+      store.subscribe((mutation, storeState) => {
+        state.notifications = storeState.sentioo.notifications;
       });
     });
 
