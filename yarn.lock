@@ -7023,6 +7023,24 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
+sentioo-vue-3@^0.7.7:
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/sentioo-vue-3/-/sentioo-vue-3-0.7.7.tgz#7103f63502e660785a128d2b4e87c471927a44e2"
+  integrity sha512-RmMBth4wRgMnDrIA9gjeVjC/xXLnLRUvGQhkWj2Jp75vkTI3KH4BZXZKiyJb9WrTNibiNVf2TozNf8ljXlky3A==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^1.2.36"
+    "@fortawesome/free-solid-svg-icons" "^5.15.4"
+    "@fortawesome/vue-fontawesome" "^3.0.0-5"
+    core-js "^3.6.5"
+    event-source-polyfill "^1.0.25"
+    linkify-html "^3.0.3"
+    linkifyjs "^3.0.3"
+    vue "^3.0.0"
+    vue-router "^4.0.12"
+    vue3-click-away "^1.2.1"
+    vuex "^4.0.0-0"
+    whatwg-fetch "^3.6.2"
+
 serialize-javascript@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-6.0.0.tgz#efae5d88f45d7924141da8b5c3a7a7e663fefeb8"

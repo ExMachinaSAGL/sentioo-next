@@ -1,4 +1,4 @@
-import { App, Plugin, createApp } from "vue";
+import { App, Plugin } from "vue";
 import ExmSentioo from './components/ExmSentioo.vue';
 import { sentiooModule } from './store/index';
 

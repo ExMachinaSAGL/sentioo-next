@@ -1,0 +1,1 @@
+declare module 'sentioo-vue-3';

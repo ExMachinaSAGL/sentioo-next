@@ -1,15 +1,19 @@
 <template>
-  <exm-sentioo :server-url="'/notifications/LOCATIONS'"></exm-sentioo>
+  <exm-sentioo :server-url="serverUrl"></exm-sentioo>
+  {{ serverUrl }}
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import ExmSentioo from './components/ExmSentioo.vue';
+import { reactive, toRefs, defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'App',
-  components: {
-    ExmSentioo
+  setup() {
+    let state = reactive({
+      serverUrl: '/notifications/LOCATIONS'
+    });
+
+    return toRefs(state);
   }
 });
 </script>
