@@ -26,49 +26,45 @@
 
 <script lang="ts">
 import 'whatwg-fetch';
-import { defineComponent } from 'vue';
+import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
-/*import { mapState, mapActions } from 'vuex';*/
-import store from '../store/index';
 import NotificationItem from './NotificationItem.vue';
 
 export default defineComponent({
   name: 'notifications-view',
-
   components: {
     NotificationItem
   },
-
-  created () {
-    /**
-     * Workaround for the issue of the notification list not correctly updating.
-     */
-    store.subscribe((mutation, state) => {
-      this.notifications = state.sentioo.notifications;
-    });
+  props: {
+    baseServerUrl: String
   },
+  setup(props) {
+    const store = useStore();
 
-  computed: {
-    sortedNotifications (): Notification[] {
-      return this.notifications.slice().sort((a, b) => {
+    let sortedNotifications = computed((): Notification[] => {
+      return state.notifications.slice().sort((a: any, b: any) => {
         return new Date(b.creationTime).getTime() - new Date(a.creationTime).getTime();
       });
-    },
-    unreadCount (): number {
-      const count: number = this.notifications.filter((n: Notification) => {
+    });
+
+    let unreadCount = computed((): number => {
+      const count: number = state.notifications.filter((n: Notification) => {
         return n.unread;
       }).length;
       return count;
-    },
-    showUnreadText (): boolean {
+    });
+
+    let showUnreadText = computed((): boolean => {
       return configUtils.config.showUnreadText;
-    },
-    unreadText (): string {
-      const count: number = this.unreadCount;
+    });
+
+    let unreadText = computed((): string => {
+      const count: number = unreadCount.value;
       const plural: string = (count > 1) ? 's' : '';
 
-      const importantCount: number = this.notifications.filter((n: Notification) => {
+      const importantCount: number = state.notifications.filter((n: Notification) => {
         const maxLength = configUtils.config.levels.length - 1;
         return (n.priority === maxLength) && n.unread;
       }).length;
@@ -80,55 +76,56 @@ export default defineComponent({
       return (count > 0)
         ? `${count} unread notification${plural}${important}`
         : '';
-    }
-  },
+    });
 
-  props: {
-    baseServerUrl: String
-  },
-
-  data () {
-    return {
-      emptyText: 'There are no unread notifications.',
-      notifications: store.state.sentioo.notifications
-    }
-  },
-
-  methods: {
-    markAllRead () {
+    const markAllRead = () => {
       store.dispatch('sentioo/markAllRead');
-    },
-    deleteAll () {
-      store.dispatch('sentioo/deleteAll');
-    },
-    // Vuex helpers do not work with TypeScript type check,
-    // since their props do not get recognised as part of the Vue component
-    // ...mapActions('sentioo', [
-    //   'markAllRead',
-    //   'deleteAll'
-    // ]),
+    };
 
-    readAll (): void {
-      fetch(`${this.baseServerUrl}/readAll`, {
+    const deleteAll = () => {
+      store.dispatch('sentioo/deleteAll');
+    };
+
+    const readAll = (): void => {
+      fetch(`${props.baseServerUrl}/readAll`, {
         method: 'POST',
         credentials: 'include'
       }).then((res) => {
         if (res.status === 200) {
-          this.markAllRead();
+          markAllRead();
         }
       })
-    },
+    };
 
-    removeAll (): void {
-      fetch(`${this.baseServerUrl}/deleteAll`, {
+    const removeAll = (): void => {
+      fetch(`${props.baseServerUrl}/deleteAll`, {
         method: 'POST',
         credentials: 'include'
       }).then((res) => {
         if (res.status === 200) {
-          this.deleteAll();
+          deleteAll();
         }
       })
     }
+
+    let state = reactive({
+      emptyText: 'There are no unread notifications.',
+      notifications: store.state.sentioo.notifications,
+      sortedNotifications,
+      showUnreadText,
+      unreadText,
+      readAll,
+      removeAll
+    });
+
+    onMounted(() => {
+      // Workaround for the issue of the notification list not correctly updating
+      store.subscribe((mutation, state) => {
+        state.notifications = state.sentioo.notifications;
+      });
+    });
+
+    return toRefs(state);
   }
 });
 </script>

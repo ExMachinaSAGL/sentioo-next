@@ -34,17 +34,14 @@
 <script lang="ts">
 import 'whatwg-fetch';
 import linkifyHtml from 'linkify-html';
-import { defineComponent } from 'vue';
-import store from '@/store/index';
+import { reactive, toRefs, computed, defineComponent, PropType } from 'vue';
+import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
 import datetimeFilter from './../lib/datetimeFilter';
-import { PropType } from 'vue';
-/*import { mapActions, mapState } from 'vuex';*/
 
 export default defineComponent({
   name: 'notification-item',
-
   props: {
     notification: {
       type: Object as PropType<Notification>,
@@ -54,97 +51,108 @@ export default defineComponent({
     },
     baseServerUrl: String
   },
+  setup(props) {
+    const store = useStore();
 
-  data () {
-    return {
-      expanded: false,
-      hovered: false,
-      maxTextLength: configUtils.config.excerptSize
-    }
-  },
+    let notificationValidity = computed((): string => {
+      return datetimeFilter(props?.notification?.validFrom);
+    });
 
-  computed: {
-    notificationValidity (): string {
-      return datetimeFilter(this?.notification?.validFrom);
-    },
-    iconClass (): string {
-      if (this.notification) {
-        const priority: number = this.notification.priority;
+    let iconClass = computed((): string => {
+      if (props.notification) {
+        const priority: number = props.notification.priority;
         return configUtils.getLevel(priority).icon;
       }
       return '';
-    },
-    iconColor (): string {
-      if (this.notification) {
-        const priority: number = this.notification.priority;
+    });
+
+    let iconColor = computed((): string => {
+      if (props.notification) {
+        const priority: number = props.notification.priority;
         return configUtils.getIconColor(priority);
       }
       return '';
-    },
-    backgroundColor (): string {
-      if (this.notification) {
-        const priority: number = this.notification.priority;
+    });
+
+    let backgroundColor = computed((): string => {
+      if (props.notification) {
+        const priority: number = props.notification.priority;
         const background: string = configUtils.getLevel(priority).backgroundColor;
         const hover: string = configUtils.getLevel(priority).hoverColor;
-        return this.hovered || !this.notification.unread ? hover : background;
+        return state.hovered || !props.notification.unread ? hover : background;
       }
       return '';
-    },
-    excerpt (): string {
-      if (this.notification) {
-        const text: string = this.notification.text || '';
-        if (text.length > this.maxTextLength && !this.expanded) {
-          return `${text.substring(0, this.maxTextLength)}...`;
+    });
+
+    let excerpt = computed((): string => {
+      if (props.notification) {
+        const text: string = props.notification.text || '';
+        if (text.length > state.maxTextLength && !state.expanded) {
+          return `${text.substring(0, state.maxTextLength)}...`;
         } else {
           return linkifyHtml(text, {});
         }
       } else return '';
-    },
-    showMore (): boolean {
-      const text: string = this?.notification?.text || '';
-      if (text.length > this.maxTextLength && !this.expanded) {
+    });
+
+    let showMore = computed((): boolean => {
+      const text: string = props?.notification?.text || '';
+      if (text.length > state.maxTextLength && !state.expanded) {
         return true;
       }
       else {
         return false;
       }
-    }
-  },
+    });
 
-  methods: {
-    markRead (n: Notification) {
+    const markRead = (n: Notification) => {
       store.dispatch('sentioo/markRead', n);
-    },
-    deleteNotification (n: Notification) {
+    };
+
+    const deleteNotification = (n: Notification) => {
       store.dispatch('sentioo/deleteNotification', n);
-    },
-    // Vuex helpers do not work with TypeScript type check,
-    // since their props do not get recognised as part of the Vue component
-    // ...mapActions('sentioo', [
-    //   'markRead',
-    //   'deleteNotification'
-    // ]),
-    readNotification (): void {
-      if (!this.notification.unread) return;
-      const url = `${this.baseServerUrl}/${this.notification.id}/read${configUtils.getParams(this.notification, 'read')}`;
+    };
+
+    const readNotification = (): void => {
+      if (!props.notification.unread) return;
+      const url = `${props.baseServerUrl}/${props.notification.id}/read${configUtils.getParams(props.notification, 'read')}`;
       fetch(url, {
         method: 'POST',
         credentials: 'include'
       }).then((res) => {
-        if (res.status === 200) { this.markRead(this.notification); }
+        if (res.status === 200) { markRead(props.notification); }
       });
-    },
-    removeNotification (): void {
-      fetch(`${this.baseServerUrl}/${this.notification.id}/delete${configUtils.getParams(this.notification, 'delete')}`, {
+    };
+
+    const removeNotification = (): void => {
+      fetch(`${props.baseServerUrl}/${props.notification.id}/delete${configUtils.getParams(props.notification, 'delete')}`, {
         method: 'POST',
         credentials: 'include'
       }).then((res) => {
-        if (res.status === 200) { this.deleteNotification(this.notification); }
+        if (res.status === 200) { deleteNotification(props.notification); }
       });
-    },
-    toggleExpand (): void {
-      this.expanded = !this.expanded;
+    };
+
+    const toggleExpand = (): void => {
+      state.expanded = !state.expanded;
     }
+
+    let state = reactive({
+      expanded: false,
+      hovered: false,
+      maxTextLength: configUtils.config.excerptSize,
+      notificationValidity,
+      iconClass,
+      iconColor,
+      backgroundColor,
+      excerpt,
+      showMore,
+      readNotification,
+      removeNotification,
+      toggleExpand
+    });
+
+    return toRefs(state);
   }
 });
 </script>

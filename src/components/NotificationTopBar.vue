@@ -10,76 +10,59 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import Notification from '../lib/Notification';
-/*import { mapState, mapGetters } from 'vuex';*/
 import configUtils from '../lib/configUtils';
-import store from '../store/index';
 
 export default defineComponent({
   name: 'notification-top-bar',
-
-  props: [
-    'showNotifications'
-  ],
-
-  created () {
-    /**
-     * WORKAROUND: solves the issue of not always updating the unread count on
-     * notifications array mutation.
-     */
-    store.subscribe((_mutation: any, state: any) => {
-      const count: number = state.sentioo.notifications
-        .filter((n: Notification) => {
-          return n.unread;
-        }).length;
-      this.unreadCount = count;
-    });
+  props: {
+    showNotifications: Boolean
   },
+  setup() {
+    const store = useStore();
 
-  computed: {
-    notifications () {
-      return store.state.sentioo.notifications;
-    },
-    // Vuex helpers do not work with TypeScript type check,
-    // since their props do not get recognised as part of the Vue component
-    // ...mapState('sentioo', {
-    //   notifications: (state: any) => state.notifications
-    // }),
-    unreadBadge (): number|string {
-      return this.unreadCount > 99 ? `${99}+` : this.unreadCount;
-    },
-    iconColor (): string {
-      if (this.notifications.length > 0 && configUtils.config.dynamicIconColor) {
-        const top: Notification = this.mostImportantNotification();
+    // Returns the notification with the highest priority
+    const mostImportantNotification = (): Notification => {
+      return state.notifications.reduce((prev: Notification, current: Notification) => {
+        return prev.priority > current.priority ? prev : current;
+      });
+    };
+
+    let notifications = computed((): Notification[] => {
+      return store.getters['sentioo/getNotifications'];
+    });
+
+    let unreadBadge = computed((): number|string => {
+      return state.unreadCount > 99 ? `${99}+` : state.unreadCount;
+    });
+
+    let iconColor = computed((): string => {
+      if (state.notifications.length > 0 && configUtils.config.dynamicIconColor) {
+        const top: Notification = mostImportantNotification();
         return configUtils.getLevel(top.priority).color;
       }
       return '';
-    }
-    // unreadCount (): number {
-    //   return store.state.sentioo.notifications
-    //     .filter((n: Notification) => {
-    //       return n.unread;
-    //     }).length;
-    // }
-  },
+    });
 
-  data () {
-    return {
+    let state = reactive({
       emptyText: 'There are no unread notifications.',
-      unreadCount: 0
-    }
-  },
+      unreadCount: 0,
+      notifications,
+      unreadBadge,
+      iconColor
+    });
 
-  methods: {
-    /**
-     * Returns the notification with the highest priority.
-     */
-    mostImportantNotification (): Notification {
-      return this.notifications.reduce((prev: Notification, current: Notification) => {
-        return prev.priority > current.priority ? prev : current;
+    onMounted(() => {
+      // WORKAROUND: solves the issue of not always updating the unread count on notifications array mutation.
+      store.subscribe((_mutation: any, state: any) => {
+        const count: number = state.sentioo.notifications.filter((n: Notification) => { return n.unread; }).length;
+        state.unreadCount = count;
       });
-    }
+    });
+
+    return toRefs(state);
   }
 });
 </script>
