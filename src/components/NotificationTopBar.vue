@@ -11,7 +11,6 @@
 
 <script lang="ts">
 import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
-// import { useStore } from 'vuex';
 import store from '../store';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
@@ -30,8 +29,6 @@ export default defineComponent({
     'font-awesome-icon': FontAwesomeIcon
   },
   setup() {
-    // const store = useStore();
-
     // Returns the notification with the highest priority
     const mostImportantNotification = (): Notification => {
       return state.notifications.reduce((prev: Notification, current: Notification) => {

@@ -1,6 +1,6 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.18",
+  "version": "0.7.19",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -17,7 +17,6 @@
     "event-source-polyfill": "^1.0.25",
     "linkify-html": "^3.0.3",
     "linkifyjs": "^3.0.3",
-    "vue": "^3.0.0",
     "vue3-click-away": "^1.2.1",
     "vuex": "^4.0.0-0",
     "whatwg-fetch": "^3.6.2"
@@ -47,6 +46,8 @@
     "style-loader": "^3.3.1",
     "ts-jest": "^27.0.4",
     "typescript": "~4.1.5",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "vue": "^3.0.0",
+    "vue-router": "4"
   }
 }
