@@ -58,7 +58,7 @@ The default configuration starts a local dev server on ```http://localhost:8080`
 ## Developing, building, and deploying a release
 ```
 # 1. Write your code, then update the package version in package.json
-"version": "0.8.2"
+"version": "0.8.3"
 
 # 2. Build as a library:
 yarn build:lib

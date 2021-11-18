@@ -1,6 +1,6 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
