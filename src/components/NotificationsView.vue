@@ -11,7 +11,7 @@
       </div>
       <div class="unread-text" v-show="showUnreadText">{{ unreadText }}</div>
     </div>
-    <transition-group name="list" tag="ul" class="notification-list">
+    <!--<transition-group name="list" tag="ul" class="notification-list">--><ul class="notification-list">
       <notification-item
         ref="items"
         v-for="notification in sortedNotifications"
@@ -19,7 +19,7 @@
         :notification="notification"
         :key="notification.id">
       </notification-item>
-    </transition-group>
+    </ul><!--</transition-group>-->
     <div id="empty" class="list-empty" v-if="notifications.length === 0">{{ emptyText }}</div>
   </div>
 </template>

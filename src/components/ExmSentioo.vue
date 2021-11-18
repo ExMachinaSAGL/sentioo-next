@@ -3,14 +3,14 @@
     <a href="#" title="Toggle notifications" class="notifications-toggle" @click="toggleNotifications">
       <notification-top-bar :show-notifications="showNotifications"></notification-top-bar>
     </a>
-    <transition name="toggle">
+    <!--<transition name="toggle">--><span>
       <notifications-view
         id="notifications-view"
         v-if="showNotifications"
         :base-server-url="baseServerUrl"
         v-click-away="closeDropdown">
       </notifications-view>
-    </transition>
+    </span><!--</transition>-->
   </div>
 </template>
 
