@@ -27,7 +27,6 @@
 <script lang="ts">
 import 'whatwg-fetch';
 import { reactive, toRefs, computed, defineComponent, onMounted } from 'vue';
-// import { useStore } from 'vuex';
 import store from '../store';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
@@ -49,8 +48,6 @@ export default defineComponent({
     baseServerUrl: String
   },
   setup(props) {
-    // const store = useStore();
-
     let sortedNotifications = computed((): Notification[] => {
       return state.notifications.slice().sort((a: any, b: any) => {
         return new Date(b.creationTime).getTime() - new Date(a.creationTime).getTime();

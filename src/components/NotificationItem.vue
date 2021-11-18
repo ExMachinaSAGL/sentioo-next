@@ -35,11 +35,10 @@
 import 'whatwg-fetch';
 import linkifyHtml from 'linkify-html';
 import { reactive, toRefs, computed, defineComponent, PropType } from 'vue';
-// import { useStore } from 'vuex';
 import store from '../store';
 import Notification from '../lib/Notification';
 import configUtils from '../lib/configUtils';
-import datetimeFilter from './../lib/datetimeFilter';
+import datetimeFilter from '../lib/datetimeFilter';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash, faCheckCircle, faEnvelope, faExclamation, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -65,8 +64,6 @@ export default defineComponent({
     'font-awesome-icon': FontAwesomeIcon
   },
   setup(props) {
-    // const store = useStore();
-
     let notificationValidity = computed((): string => {
       return datetimeFilter(props?.notification?.validFrom);
     });

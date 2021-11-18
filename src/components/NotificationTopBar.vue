@@ -63,8 +63,8 @@ export default defineComponent({
 
     onMounted(() => {
       // WORKAROUND: solves the issue of not always updating the unread count on notifications array mutation.
-      store.subscribe((_mutation: any, state: any) => {
-        const count: number = state.sentioo.notifications.filter((n: Notification) => { return n.unread; }).length;
+      store.subscribe((_mutation: any, storeState: any) => {
+        const count: number = storeState.sentioo.notifications.filter((n: Notification) => { return n.unread; }).length;
         state.unreadCount = count;
       });
     });

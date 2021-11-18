@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import { reactive, toRefs, defineComponent, PropType, onMounted } from 'vue';
-// import { useStore } from 'vuex';
 import store from '../store';
 import { mixin as clickaway } from "vue3-click-away";
 import Notification from '../lib/Notification';
