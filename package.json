@@ -1,11 +1,11 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.11",
+  "version": "0.7.12",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --inline-vue --name sentioo src/index.ts",
+    "build:lib": "vue-cli-service build --target lib --name sentioo src/index.ts",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
@@ -43,7 +43,7 @@
     "mini-css-extract-plugin": "^2.4.4",
     "sass": "^1.26.5",
     "sass-loader": "^12.3.0",
-    "sentioo-vue-3": "^0.7.10",
+    "sentioo-vue-3": "^0.7.11",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.0.4",
     "typescript": "~4.1.5",
