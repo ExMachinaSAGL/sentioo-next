@@ -1,11 +1,11 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.17",
+  "version": "0.7.18",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --inline-vue --name sentioo src/index.ts",
+    "build:lib": "vue-cli-service build --target lib --name sentioo src/index.ts",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
