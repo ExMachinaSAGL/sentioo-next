@@ -79,6 +79,9 @@ export default defineComponent({
 
 .notification-icon {
   @include notification-icon;
+  > i {
+    line-height: 26px;
+  }
 }
 
 .notification-top-bar {

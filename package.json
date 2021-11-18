@@ -1,6 +1,6 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.20",
+  "version": "0.8.0",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -42,7 +42,7 @@
     "mini-css-extract-plugin": "^2.4.4",
     "sass": "^1.26.5",
     "sass-loader": "^12.3.0",
-    "sentioo-vue-3": "^0.7.19",
+    "sentioo-vue-3": "^0.7.20",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.0.4",
     "typescript": "~4.1.5",

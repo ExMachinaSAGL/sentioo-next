@@ -7054,10 +7054,10 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-sentioo-vue-3@^0.7.19:
-  version "0.7.19"
-  resolved "https://registry.yarnpkg.com/sentioo-vue-3/-/sentioo-vue-3-0.7.19.tgz#5d281f6575377cea8a08ba2128fedbd61023ead0"
-  integrity sha512-ArvmpCFGgcj7g96xjnK6c5slH91G94P2lekCxpUhenguZnYWqi0iFLFPa8Q80TIb1rdI3V3NaMZ6qthsX673yQ==
+sentioo-vue-3@^0.7.20:
+  version "0.7.20"
+  resolved "https://registry.yarnpkg.com/sentioo-vue-3/-/sentioo-vue-3-0.7.20.tgz#3434b088752464b27bdf25ced11710869f8fd9c9"
+  integrity sha512-genNG601vUVXGi7o7YpRYKg984QlivlCH32KdpHw7c6EVQgjadT8F3tFPxfPB0tb2ZQ8FMQdjsCCVnOtrhiLvQ==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.36"
     "@fortawesome/free-solid-svg-icons" "^5.15.4"
