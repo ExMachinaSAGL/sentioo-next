@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, computed, defineComponent, PropType, onMounted } from 'vue';
+import { reactive, toRefs, defineComponent, PropType, onMounted } from 'vue';
 // import { useStore } from 'vuex';
 import store from '../store';
 import { mixin as clickaway } from "vue3-click-away";
