@@ -4,7 +4,7 @@ It can be integrated as a module in a Vue.js web application.
 Now compatible with Vue3.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ExMachinaSAGL/sentioo/master/dropdown.png" alt="The default dropdown view" width="500px"/>
+  <img src="https://github.com/ExMachinaSAGL/sentioo-next/blob/main/dropdown.png" alt="The default dropdown view" width="500px"/>
 </p>
 
 For further documentation please read [the old package's documentation](https://github.com/ExMachinaSAGL/sentioo).
