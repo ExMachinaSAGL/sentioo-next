@@ -1,6 +1,6 @@
 {
   "name": "sentioo-vue-3",
-  "version": "0.7.13",
+  "version": "0.7.14",
   "main": "./dist/lib/sentioo.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -18,7 +18,7 @@
     "linkify-html": "^3.0.3",
     "linkifyjs": "^3.0.3",
     "vue": "^3.0.0",
-    "vue-router": "^3.5.3",
+    "vue-router": "4",
     "vue3-click-away": "^1.2.1",
     "vuex": "^4.0.0-0",
     "whatwg-fetch": "^3.6.2"
@@ -44,7 +44,7 @@
     "mini-css-extract-plugin": "^2.4.4",
     "sass": "^1.26.5",
     "sass-loader": "^12.3.0",
-    "sentioo-vue-3": "^0.7.11",
+    "sentioo-vue-3": "^0.7.13",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.0.4",
     "typescript": "~4.1.5",

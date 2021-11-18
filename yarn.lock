@@ -1994,7 +1994,7 @@
   optionalDependencies:
     prettier "^1.18.2 || ^2.0.0"
 
-"@vue/devtools-api@^6.0.0-beta.11":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.18":
   version "6.0.0-beta.20.1"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.20.1.tgz#5b499647e929c35baf2a66a399578f9aa4601142"
   integrity sha512-R2rfiRY+kZugzWh9ZyITaovx+jpU4vgivAEAiz80kvh3yviiTU3CBuGuyWpSwGz9/C7TkSWVM/FtQRGlZ16n8Q==
@@ -7054,10 +7054,10 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-sentioo-vue-3@^0.7.11:
-  version "0.7.11"
-  resolved "https://registry.yarnpkg.com/sentioo-vue-3/-/sentioo-vue-3-0.7.11.tgz#fbd6e776b816100df2684e3cff084df024b4fb42"
-  integrity sha512-1SOPx0ktywBhLT99Vnv/REd7/e1F+0XWtceW1E0xa6M+ulh+1YFa9gZt1VFgnSp2a5jenEqBcCl1pn6A2r6KGQ==
+sentioo-vue-3@^0.7.13:
+  version "0.7.13"
+  resolved "https://registry.yarnpkg.com/sentioo-vue-3/-/sentioo-vue-3-0.7.13.tgz#09d2999ae9bb376b0b5d3803b392aa1feda63947"
+  integrity sha512-XcHJtf521A6ouEup/t+0qnY53IOeJxMwIeiY1ohQHfeyafWkedZV4rmBpMFNgjw0CppOS6/RiMAF13NhQKHs4Q==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.36"
     "@fortawesome/free-solid-svg-icons" "^5.15.4"
@@ -7067,6 +7067,7 @@ sentioo-vue-3@^0.7.11:
     linkify-html "^3.0.3"
     linkifyjs "^3.0.3"
     vue "^3.0.0"
+    vue-router "^3.5.3"
     vue3-click-away "^1.2.1"
     vuex "^4.0.0-0"
     whatwg-fetch "^3.6.2"
@@ -7908,6 +7909,13 @@ vue-loader@^16.8.2:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
+
+vue-router@4:
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
+  integrity sha512-CPXvfqe+mZLB1kBWssssTiWg4EQERyqJZes7USiqfW9B5N2x+nHlnsM1D3b5CaJ6qgCvMmYJnz+G0iWjNCvXrg==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.18"
 
 vue-router@^3.5.3:
   version "3.5.3"
