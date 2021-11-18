@@ -4,6 +4,7 @@ var config = process.env.NODE_ENV === 'production' ? {
   outputDir: __dirname + "/dist/lib",
   assetsDir: "static",
   configureWebpack: {
+    externals: { vue: 'Vue' },
     entry: "./src/index.ts",
     output: {
       filename: "./static/[name].min.js"
