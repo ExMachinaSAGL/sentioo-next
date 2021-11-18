@@ -1,25 +1,25 @@
 { 
-  "levels" : [
+  "levels": [
     {
-      "icon" : "fa-envelope-o",
-      "color" : "#4CAF50",
-      "backgroundColor" : "#C8E6C9",
-      "hoverColor" : "#E8F5E9"
+      "icon": "envelope",
+      "color": "#4CAF50",
+      "backgroundColor": "#C8E6C9",
+      "hoverColor": "#E8F5E9"
     },
     {
-      "icon" : "fa-exclamation-triangle",
+      "icon": "exclamation-triangle",
       "color": "#FFF",
-      "backgroundColor" : "#FBC007",
-      "hoverColor" : "#FAA502"
+      "backgroundColor": "#FBC007",
+      "hoverColor": "#FAA502"
     },
     {
-      "icon" : "fa-exclamation",
+      "icon": "exclamation",
       "color": "#FFF",
-      "backgroundColor" : "#F44336",
-      "hoverColor" : "#F00"
+      "backgroundColor": "#F44336",
+      "hoverColor": "#F00"
     }
   ],
-  "showUnreadText" : false,
+  "showUnreadText": false,
   "excerptSize": 50,
   "dynamicIconColor": false,
   "readParams": ["type"],

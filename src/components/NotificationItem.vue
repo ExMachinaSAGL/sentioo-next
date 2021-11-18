@@ -11,7 +11,7 @@
     <div class="notification-header">
       <div class="icon-container">
         <div class="notification-icon" :style="{ backgroundColor: iconColor }">
-          <i class="fa" :class="iconClass"></i>
+          <font-awesome-icon :icon="iconClass" />
         </div>
       </div>
       <div class="notification-content">
@@ -42,10 +42,13 @@ import configUtils from '../lib/configUtils';
 import datetimeFilter from './../lib/datetimeFilter';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrash, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCheckCircle, faEnvelope, faExclamation, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTrash);
 library.add(faCheckCircle);
+library.add(faEnvelope);
+library.add(faExclamation);
+library.add(faExclamationTriangle);
 
 export default defineComponent({
   name: 'notification-item',

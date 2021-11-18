@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'App',
   setup() {
     let state = reactive({
-      serverUrl: '/notifications/LOCATIONS'
+      serverUrl: 'http://localhost:3000/notifications/LOCATIONS'
     });
 
     return toRefs(state);
