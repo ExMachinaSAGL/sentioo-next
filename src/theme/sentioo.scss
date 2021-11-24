@@ -12,6 +12,7 @@
 @mixin notifications-toggle {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 @mixin toggle-animation-transition {

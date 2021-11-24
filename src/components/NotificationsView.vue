@@ -2,12 +2,12 @@
   <div class="notifications-view">
     <div class="notifications-view-header">
       <div class="notifications-view-header-bulk-icons" v-if="notifications && notifications.length">
-        <a href="#" title="Mark all as read" class="notifications-read-all" @click="readAll">
+        <span title="Mark all as read" class="notifications-read-all" @click="readAll">
           <font-awesome-icon icon="check-circle" />
-        </a>
-        <a href="#" title="Remove all notifications" class="notifications-remove-all" @click="removeAll">
+        </span>
+        <span title="Remove all notifications" class="notifications-remove-all" @click="removeAll">
           <font-awesome-icon icon="trash" />
-        </a>
+        </span>
       </div>
       <div class="unread-text" v-show="showUnreadText">{{ unreadText }}</div>
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="sentioo">
-    <a href="#" title="Toggle notifications" class="notifications-toggle" @click="toggleNotifications">
+    <span title="Toggle notifications" class="notifications-toggle" @click="toggleNotifications">
       <notification-top-bar :show-notifications="showNotifications"></notification-top-bar>
-    </a>
+    </span>
     <!--<transition name="toggle">--><span>
       <notifications-view
         id="notifications-view"

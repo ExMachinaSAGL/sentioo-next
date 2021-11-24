@@ -27,6 +27,7 @@ export const SSEReadyStates = {
 export class SSEConnection {
   source: any;
   listeners: {
+    // eslint-disable-next-line
     [key: string ]: (evt: SSEEvent) => void
   };
 
@@ -45,6 +46,7 @@ export class SSEConnection {
    * @param type Event type that should trigger the event
    * @param callback Handles the event
    */
+  // eslint-disable-next-line
   on (type: string, callback: (evt: SSEEvent) => void): void {
     if (type in this.listeners) { // remove it, if it already exists
       this.removeEvent(type);
@@ -66,6 +68,7 @@ export class SSEConnection {
   }
 
   removeEvent (type: string): void {
+    // eslint-disable-next-line
     const callback: (evt: SSEEvent) => void = this.listeners[type];
     if (callback) {
       this.source.removeEventListener(type, callback)
